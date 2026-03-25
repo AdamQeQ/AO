@@ -12,7 +12,7 @@ public class GameStateMenager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SetGameState(CurrentState);
     }
 
     // Update is called once per frame
@@ -31,6 +31,11 @@ public class GameStateMenager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        SetGameState(GameState.Running);
+    }
+
     private void SetGameState(GameState newState)
     {
         if (newState == GameState.Paused)
@@ -46,6 +51,6 @@ public class GameStateMenager : MonoBehaviour
             Cursor.visible = false;
 
         }
+        CurrentState = newState;
     }
-    GetCurrentHapticStateCommand = newState;
 }
