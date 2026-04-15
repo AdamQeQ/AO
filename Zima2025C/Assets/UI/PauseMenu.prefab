@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8600350606520138323}
   - component: {fileID: 6341311107172779147}
   - component: {fileID: 2836862924456535151}
+  - component: {fileID: 7759678839544648805}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuHandle
   Myslider: {fileID: 7910846899623269970}
   MyText: {fileID: 1432261132683461667}
+  Animator: {fileID: 7759678839544648805}
 --- !u!225 &2836862924456535151
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -107,6 +109,28 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &7759678839544648805
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252269695789468159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c0f094f31065664a885ff3ac7378a37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &788291285594951578
 GameObject:
   m_ObjectHideFlags: 0
