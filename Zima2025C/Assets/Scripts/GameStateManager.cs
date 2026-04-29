@@ -1,14 +1,15 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem.XR.Haptics;
 
-public class GameStateMenager : MonoBehaviour
+public class GameStateManager : MonoBehaviour
 {
     public enum GameState
-    { 
+    {
         Paused,
         Running
     }
-    public GameState CurrentState = GameState.Running;
+    public GameState CurrentState;
+    public Action OnPauseGame;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,25 +18,26 @@ public class GameStateMenager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
         if (Input.GetButtonDown("Pause"))
         {
-            if (CurrentState ==GameState.Paused)
+            if (CurrentState == GameState.Paused)
             {
                 SetGameState(GameState.Running);
             }
-            else if (CurrentState ==GameState.Running)
+            else if (CurrentState == GameState.Running)
             {
                 SetGameState(GameState.Paused);
             }
         }
-    }
+        
 
+    }
     public void StartGame()
     {
         SetGameState(GameState.Running);
     }
-
     private void SetGameState(GameState newState)
     {
         if (newState == GameState.Paused)
@@ -43,14 +45,18 @@ public class GameStateMenager : MonoBehaviour
             Time.timeScale = 0.0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            //if (OnPauseGame !=null)
+            OnPauseGame?.Invoke();
+
+
         }
-        else if (newState == GameState.Running)
-        { 
+        else if (newState == GameState.Running) 
+        {
             Time.timeScale = 1.0f;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-
         }
         CurrentState = newState;
     }
 }
+
